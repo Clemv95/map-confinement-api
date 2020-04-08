@@ -48,14 +48,15 @@ $(document).ready(async function rayon() {
     //On utilise l'api nominatim afin de récupérer les coordonnées via l'adresse (Attention fonction asynchrone, donc bien utiliser async et await)
     if (adresse != "") {
         await $.ajax({
-            url: "https://nominatim.openstreetmap.org/search",
+            url: "https://api-adresse.data.gouv.fr/search/",
             type: 'get',
-            data: "q=" + adresse + "&format=json&addressdetails=1&limit=1&polygon_svg=1"
+            data: "q=" + adresse + "&limit=1"
         }).done(await
             function(response) {
                 if (response != '') {
-                    y_coord = response[0]['lat'];
-                    x_coord = response[0]['lon'];
+                    data = JSON.parse(JSON.stringify(response));
+                    y_coord = data.features[0].geometry.coordinates[1];
+                    x_coord = data.features[0].geometry.coordinates[0];
                 } else if (response == '') {
                     y_coord = null;
                     x_coord = null;
