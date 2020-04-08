@@ -10,7 +10,7 @@ var indexRouter = require('./routes/index.js');
 var app = express();
 
 //On utilise morgan pour les logs 
-app.use(logger('short'));
+app.use(logger(':remote-addr [:date[web]] :method :url HTTP/:http-version :status :res[content-length] - :response-time ms '));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
