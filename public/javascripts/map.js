@@ -1,4 +1,4 @@
-//On recupère les paramètres de l'url 
+﻿//On recupère les paramètres de l'url 
 //on sépare grâce au "&"
 //Exemple : http://192.168.1.45:3000/api/map.php?adresse=35%20rue%20du%20trou%20Cergy
 //Donne : 35 rue du trou Cergy 
@@ -72,8 +72,8 @@ $(document).ready(async function rayon() {
 
         //On affiche le marker sur la map ainsi que le cercle autour de l'adresse recherchée 
         var marker = L.marker([y_coord, x_coord]).addTo(myFeatureGroup);
-        L.circle([y_coord, x_coord], 1000).addTo(myFeatureGroup);
-        map.setView([y_coord, x_coord], 15);
+        L.circle([y_coord, x_coord], 100000).addTo(myFeatureGroup);
+        map.setView([y_coord, x_coord], 8);
 
     }
 });
