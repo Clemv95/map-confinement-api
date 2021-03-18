@@ -72,7 +72,7 @@ $(document).ready(async function rayon() {
 
         //On affiche le marker sur la map ainsi que le cercle autour de l'adresse recherchée 
         var marker = L.marker([y_coord, x_coord]).addTo(myFeatureGroup);
-        L.circle([y_coord, x_coord], 100000).addTo(myFeatureGroup);
+        L.circle([y_coord, x_coord], 10000).addTo(myFeatureGroup);
         map.setView([y_coord, x_coord], 8);
 
     }
